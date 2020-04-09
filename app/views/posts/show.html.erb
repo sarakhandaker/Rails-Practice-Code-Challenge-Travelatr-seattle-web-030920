@@ -1,0 +1,8 @@
+<h1> <%=@post.title%></h1>
+<h2> Total Likes: <%=@post.likes%> </h2>
+<h2> Author:<%= link_to @post.blogger.name, blogger_path(@post.blogger) %> </h2>
+<h3> Location:<%= link_to @post.destination.name, destination_path(@post.destination) %> </h3>
+<p> <%=@post.content%></p>
+<br>
+
+<%= button_to "Like", post_path(@post), method: :get, params: {click: :true} %>

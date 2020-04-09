@@ -1,0 +1,21 @@
+<h1> <%=@destination.name%></h1>
+<h2> Featured Post:</h1>
+<h2> <%= link_to @destination.feature_post.title, post_path(@destination.feature_post) %> Likes: <%=@destination.feature_post.likes %> </h2>
+
+<h2> Five Most Recent Posts: </h2>
+<% num=1%>
+<h3> <%@destination.five_recent.each do |post| %>
+<%if num<=5%>
+<%=num%>. <%=link_to post.title, post_path(post)%>, Posted: <%=post.created_at.strftime("%A, %B, %d, %Y at %I:%M%p")%> <br/>
+<%num+=1%>
+<%end%>
+<%end%> </h3>
+<br/><br/><br/><br/><br/><br/>
+
+<h2> All Posts: </h2>
+<h3> <%@destination.posts.each do |post| %>
+<%= link_to post.title, post_path(post) %> <br/>
+<%end%> </h3>
+
+<h2> Average Age of Bloggers: </h2>
+<h3> <%=@destination.average_age %> Years Old </h3>

@@ -1,0 +1,8 @@
+<h1>List of Posts </h1>
+<h2>
+<% @posts.each do |post| %>
+<%=link_to post.title, post_path(post)%> 
+By: <%=link_to post.blogger.name, blogger_path(post.blogger)%>
+At: <%=link_to post.destination.name, destination_path(post.destination)%><br/>
+<%end%>
+<h2>

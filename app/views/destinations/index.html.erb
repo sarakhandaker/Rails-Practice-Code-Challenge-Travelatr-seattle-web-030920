@@ -1,0 +1,6 @@
+<h1>List of Destinations </h1>
+<h2>
+<% @destinations.each do |des| %>
+<%=link_to des.name, destination_path(des)%><br/>
+<%end%>
+<h2>

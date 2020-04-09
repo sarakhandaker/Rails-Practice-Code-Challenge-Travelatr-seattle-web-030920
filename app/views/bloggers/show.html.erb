@@ -1,0 +1,17 @@
+<h1> <%=@blogger.name%></h1>
+<h2> Total Likes: <%=@blogger.likes_num %> </h2>
+<h2> Featured Post:</h1>
+<h2> <%= link_to @blogger.feature_post.title, post_path(@blogger.feature_post) if @blogger.feature_post %> Likes: <%=@blogger.feature_post.likes if @blogger.feature_post%> </h2>
+<h2> All Posts: </h2>
+<h3> <%@blogger.posts.each do |post| %>
+<%= link_to post.title, post_path(post) %> <br/>
+<%end%> </h3>
+
+<h2> Top Five Destinations: </h2>
+<% num=1%>
+<h3> <%@blogger.top_five.each do |des, posts| %>
+<%if num<=5%>
+<%=num%>. <%=des%>,  Number of Posts: <%=posts%> <br/>
+<%num+=1%>
+<%end%>
+<%end%> </h3>
